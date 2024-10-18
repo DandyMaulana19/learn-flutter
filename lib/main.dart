@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:try_flutter/layout.dart';
-import 'package:try_flutter/layout2.dart';
+import 'package:try_flutter/tugaslayout.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,7 +33,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // home: Dandy_1201222032(),
-      home: const Layout2(),
+      // home: const Layout2(),
+      home: const Tugaslayout(),
     );
   }
 }

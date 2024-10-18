@@ -8,11 +8,11 @@ class Page_View extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(children: [
-        ViewSatu(),
-        ViewDua(),
-        ViewTiga(),
+        const ViewSatu(),
+        const ViewDua(),
+        const ViewTiga(),
         Container(
-          child: Center(
+          child: const Center(
             child: Column(),
           ),
         )

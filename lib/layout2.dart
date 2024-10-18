@@ -8,7 +8,7 @@ class Layout2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 6,
+      length: 3,
       child: Scaffold(
         appBar: AppBar(
           title: Text("Tab Bar"),
