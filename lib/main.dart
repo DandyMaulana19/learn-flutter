@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:try_flutter/button_screen.dart';
 import 'package:try_flutter/tugaslayout.dart';
 
 void main() {
@@ -34,7 +35,8 @@ class MyApp extends StatelessWidget {
       ),
       // home: Dandy_1201222032(),
       // home: const Layout2(),
-      home: const Tugaslayout(),
+      // home: const Tugaslayout(),
+      home: const ButtonScreen(),
     );
   }
 }
