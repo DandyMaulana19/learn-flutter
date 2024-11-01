@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:try_flutter/button_screen.dart';
 import 'package:try_flutter/tugaslayout.dart';
+import 'package:try_flutter/bot_navbar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,10 +34,12 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      debugShowCheckedModeBanner: false,
       // home: Dandy_1201222032(),
       // home: const Layout2(),
       // home: const Tugaslayout(),
-      home: const ButtonScreen(),
+      // home: const ButtonScreen(),
+      home: const BotNavbar(),
     );
   }
 }

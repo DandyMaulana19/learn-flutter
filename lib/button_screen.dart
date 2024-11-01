@@ -31,14 +31,64 @@ class _ButtonScreenState extends State<ButtonScreen> {
         children: [
           TextButton(
               style: TextButton.styleFrom(backgroundColor: Colors.red),
-              onPressed: () {},
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    duration: const Duration(seconds: 5),
+                    content: Text('Button Clicked'),
+                    action: SnackBarAction(label: 'Undo', onPressed: () {}),
+                  ),
+                );
+              },
               child: Text(
-                'Text Button',
+                'SnackBar Button',
                 style: TextStyle(color: Colors.white),
               )),
           ElevatedButton(
-              onPressed: () {}, child: const Text('Elevated Button')),
-          OutlinedButton(onPressed: () {}, child: const Text('Outline Button')),
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: Text("Menghapus List"),
+                      content: Text("Apakah anda yakin ?"),
+                      actions: [
+                        TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop;
+                            },
+                            child: Text("No")),
+                        TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop;
+                            },
+                            child: Text("Yes")),
+                      ],
+                    );
+                  },
+                );
+              },
+              child: const Text('Dialog Button')),
+          OutlinedButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return SimpleDialog(
+                      title: Text("Pilih Metode"),
+                      children: [
+                        SimpleDialogOption(
+                            onPressed: () {}, child: Text('COD')),
+                        SimpleDialogOption(
+                            onPressed: () {}, child: Text('Bank')),
+                        SimpleDialogOption(
+                            onPressed: () {}, child: Text('Indomaret')),
+                      ],
+                    );
+                  },
+                );
+              },
+              child: const Text('Outline Button')),
           IconButton(onPressed: () {}, icon: const Icon(Icons.add_a_photo)),
           DropdownButton<String>(
               value: _selectedValue,
