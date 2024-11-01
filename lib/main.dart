@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:try_flutter/argumentsScreen.dart';
+import 'package:try_flutter/bottomBar.dart';
 import 'package:try_flutter/button_screen.dart';
+import 'package:try_flutter/firstScreen.dart';
+import 'package:try_flutter/pageview.dart';
+import 'package:try_flutter/returnDataScreen.dart';
+import 'package:try_flutter/secondScreen.dart';
 import 'package:try_flutter/tugaslayout.dart';
 import 'package:try_flutter/bot_navbar.dart';
 
@@ -39,7 +45,17 @@ class MyApp extends StatelessWidget {
       // home: const Layout2(),
       // home: const Tugaslayout(),
       // home: const ButtonScreen(),
-      home: const BotNavbar(),
+      // home: const PageView(),
+      // home: const BotNavbar(),
+      // home: const BottomBar(),
+      // home: const Firstscreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Firstscreen(),
+        '/second': (context) => Secondscreen(),
+        '/arguments': (context) => Argumentsscreen(),
+        '/return-data': (context) => Returndatascreen(),
+      },
     );
   }
 }
