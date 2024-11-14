@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:try_flutter/argumentsScreen.dart';
+import 'package:try_flutter/belajar_media.dart';
 import 'package:try_flutter/bottomBar.dart';
 import 'package:try_flutter/button_screen.dart';
 import 'package:try_flutter/firstScreen.dart';
@@ -49,13 +50,14 @@ class MyApp extends StatelessWidget {
       // home: const BotNavbar(),
       // home: const BottomBar(),
       // home: const Firstscreen(),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => Firstscreen(),
-        '/second': (context) => Secondscreen(),
-        '/arguments': (context) => Argumentsscreen(),
-        '/return-data': (context) => Returndatascreen(),
-      },
+      // initialRoute: '/',
+      // routes: {
+      //   '/': (context) => Firstscreen(),
+      //   '/second': (context) => Secondscreen(),
+      //   '/arguments': (context) => Argumentsscreen(),
+      //   '/return-data': (context) => Returndatascreen(),
+      // },
+      home: const BelajarMedia(),
     );
   }
 }
