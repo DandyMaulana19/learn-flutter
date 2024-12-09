@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:try_flutter/LocalData.dart';
+import 'package:try_flutter/layout2.dart';
 import 'package:try_flutter/argumentsScreen.dart';
 import 'package:try_flutter/belajar_media.dart';
 import 'package:try_flutter/bottomBar.dart';
@@ -57,7 +59,8 @@ class MyApp extends StatelessWidget {
       //   '/arguments': (context) => Argumentsscreen(),
       //   '/return-data': (context) => Returndatascreen(),
       // },
-      home: const BelajarMedia(),
+      // home: const BelajarMedia(),
+      home: const LocalData(),
     );
   }
 }
