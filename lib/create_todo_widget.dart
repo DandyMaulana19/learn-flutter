@@ -28,13 +28,16 @@ class _CreateTodoWidgetState extends State<CreateTodoWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final isUpdate = widget.todo != null;
     return AlertDialog(
-      title: const Text("Add Todo"),
+      title: Text(isUpdate ? "EditTodo" : "Add Todo"),
       content: Form(
         key: formKey,
         child: TextFormField(
           controller: controller,
           autofocus: true,
+          validator: (value) =>
+              value != null && value.isEmpty ? "Title is required" : null,
         ),
       ),
       actions: [
@@ -45,7 +48,9 @@ class _CreateTodoWidgetState extends State<CreateTodoWidget> {
             child: const Text("Cancel")),
         TextButton(
             onPressed: () {
-              widget.onSubmit(controller.text);
+              if (formKey.currentState!.validate()) {
+                widget.onSubmit(controller.text);
+              }
             },
             child: const Text("Submit"))
       ],

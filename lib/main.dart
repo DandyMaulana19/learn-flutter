@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:try_flutter/LocalData.dart';
-import 'package:try_flutter/layout2.dart';
-import 'package:try_flutter/argumentsScreen.dart';
-import 'package:try_flutter/belajar_media.dart';
-import 'package:try_flutter/bottomBar.dart';
-import 'package:try_flutter/button_screen.dart';
-import 'package:try_flutter/firstScreen.dart';
-import 'package:try_flutter/pageview.dart';
-import 'package:try_flutter/returnDataScreen.dart';
-import 'package:try_flutter/secondScreen.dart';
-import 'package:try_flutter/tugaslayout.dart';
-import 'package:try_flutter/bot_navbar.dart';
+import 'package:timezone/data/latest.dart';
+import 'package:try_flutter/services/notification_services.dart';
+// import 'package:try_flutter/LocalData.dart';
+// import 'package:try_flutter/layout2.dart';
+// import 'package:try_flutter/argumentsScreen.dart';
+// import 'package:try_flutter/belajar_media.dart';
+// import 'package:try_flutter/bottomBar.dart';
+// import 'package:try_flutter/button_screen.dart';
+// import 'package:try_flutter/firstScreen.dart';
+// import 'package:try_flutter/pageview.dart';
+// import 'package:try_flutter/returnDataScreen.dart';
+// import 'package:try_flutter/secondScreen.dart';
+// import 'package:try_flutter/tugaslayout.dart';
+// import 'package:try_flutter/bot_navbar.dart';
+import 'package:try_flutter/todo_crud.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  NotificationServices.init();
+  initializeTimeZones();
   runApp(const MyApp());
 }
 
@@ -60,7 +66,8 @@ class MyApp extends StatelessWidget {
       //   '/return-data': (context) => Returndatascreen(),
       // },
       // home: const BelajarMedia(),
-      home: const LocalData(),
+      // home: const LocalData(),
+      home: const TodoCrud(),
     );
   }
 }

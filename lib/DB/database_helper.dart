@@ -1,6 +1,6 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:aplikasipertama/db/todo_db.dart';
+import 'package:try_flutter/db/todo_db.dart';
 
 class DatabaseHelper {
   Database? _database;

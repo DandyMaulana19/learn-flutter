@@ -1,6 +1,8 @@
+// ignore_for_file: prefer_const_constructors, use_build_context_synchronously
+
 import 'package:try_flutter/model/todo_model.dart';
 import 'package:try_flutter/create_todo_widget.dart';
-import 'package:try_flutter/DB/todo_db.dart';
+import 'package:try_flutter/db/todo_db.dart';
 import 'package:flutter/material.dart';
 
 class TodoCrud extends StatefulWidget {
@@ -73,9 +75,26 @@ class _TodoCrudState extends State<TodoCrud> {
                     return ListTile(
                       title: Text(todo.title),
                       trailing: IconButton(
-                        onPressed: () {},
+                        onPressed: () async {
+                          await todoDb.delete(todo.id);
+                          getTodo();
+                        },
                         icon: Icon(Icons.delete, color: Colors.red),
                       ),
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) => CreateTodoWidget(
+                            todo: todo,
+                            onSubmit: (title) async {
+                              await todoDb.update(id: todo.id, title: title);
+                              getTodo();
+                              if (!mounted) return;
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        );
+                      },
                     );
                   },
                   itemCount: todos.length);

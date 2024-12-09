@@ -1,6 +1,6 @@
 import 'package:sqflite/sqflite.dart';
-import 'package:aplikasipertama/db/database_helper.dart';
-import 'package:aplikasipertama/Model/todo_model.dart';
+import 'package:try_flutter/db/database_helper.dart';
+import 'package:try_flutter/model/todo_model.dart';
 
 class TodoDb {
   final tableName = 'todo';
