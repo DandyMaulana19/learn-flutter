@@ -1,16 +1,15 @@
-import 'package:try_flutter/model/todo_model.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
+import 'package:try_flutter/model/todo_api_model.dart';
+import 'package:try_flutter/model/todo_model.dart';
 
 class CreateTodoWidget extends StatefulWidget {
   final TodoModel? todo;
+  final TodoApiModel? todoApi;
   final ValueChanged<String> onSubmit;
-
-  const CreateTodoWidget({
-    Key? key,
-    this.todo,
-    required this.onSubmit,
-  }) : super(key: key);
+  const CreateTodoWidget(
+      {Key? key, this.todo, this.todoApi, required this.onSubmit})
+      : super(key: key);
 
   @override
   State<CreateTodoWidget> createState() => _CreateTodoWidgetState();
@@ -18,26 +17,30 @@ class CreateTodoWidget extends StatefulWidget {
 
 class _CreateTodoWidgetState extends State<CreateTodoWidget> {
   final controller = TextEditingController();
-  final formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   void initState() {
     super.initState();
-
     controller.text = widget.todo?.title ?? '';
+    controller.text = widget.todoApi?.title ?? '';
   }
 
   @override
   Widget build(BuildContext context) {
-    final isUpdate = widget.todo != null;
+    final isEditing = widget.todo != null || widget.todoApi != null;
     return AlertDialog(
-      title: Text(isUpdate ? "EditTodo" : "Add Todo"),
+      title: Text(isEditing ? 'Edit Todo' : 'Add Todo'),
       content: Form(
-        key: formKey,
+        key: _formKey,
         child: TextFormField(
-          controller: controller,
           autofocus: true,
-          validator: (value) =>
-              value != null && value.isEmpty ? "Title is required" : null,
+          controller: controller,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter some text';
+            }
+            return null;
+          },
         ),
       ),
       actions: [
@@ -45,14 +48,14 @@ class _CreateTodoWidgetState extends State<CreateTodoWidget> {
             onPressed: () {
               Navigator.pop(context);
             },
-            child: const Text("Cancel")),
+            child: const Text('cancel')),
         TextButton(
             onPressed: () {
-              if (formKey.currentState!.validate()) {
+              if (_formKey.currentState!.validate()) {
                 widget.onSubmit(controller.text);
               }
             },
-            child: const Text("Submit"))
+            child: const Text("submit"))
       ],
     );
   }
