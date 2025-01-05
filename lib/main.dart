@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:timezone/data/latest.dart';
 import 'package:try_flutter/services/notification_services.dart';
+import 'package:try_flutter/services/notification_screen.dart';
 // import 'package:try_flutter/LocalData.dart';
 // import 'package:try_flutter/layout2.dart';
-// import 'package:try_flutter/argumentsScreen.dart';
+import 'package:try_flutter/argumentsScreen.dart';
 // import 'package:try_flutter/belajar_media.dart';
 // import 'package:try_flutter/bottomBar.dart';
 // import 'package:try_flutter/button_screen.dart';
-// import 'package:try_flutter/firstScreen.dart';
+import 'package:try_flutter/firstScreen.dart';
 // import 'package:try_flutter/pageview.dart';
-// import 'package:try_flutter/returnDataScreen.dart';
-// import 'package:try_flutter/secondScreen.dart';
+import 'package:try_flutter/returnDataScreen.dart';
+import 'package:try_flutter/secondScreen.dart';
 // import 'package:try_flutter/tugaslayout.dart';
 // import 'package:try_flutter/bot_navbar.dart';
 // import 'package:try_flutter/todo_crud.dart';
-import 'package:try_flutter/todo_api_crud.dart';
+// import 'package:try_flutter/todo_api_crud.dart';
+
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -59,17 +62,19 @@ class MyApp extends StatelessWidget {
       // home: const BotNavbar(),
       // home: const BottomBar(),
       // home: const Firstscreen(),
-      // initialRoute: '/',
-      // routes: {
-      //   '/': (context) => Firstscreen(),
-      //   '/second': (context) => Secondscreen(),
-      //   '/arguments': (context) => Argumentsscreen(),
-      //   '/return-data': (context) => Returndatascreen(),
-      // },
+      initialRoute: '/',
+      navigatorKey: navigatorKey,
+      routes: {
+        '/': (context) => Firstscreen(),
+        '/second': (context) => Secondscreen(),
+        '/arguments': (context) => Argumentsscreen(),
+        '/return-data': (context) => Returndatascreen(),
+        '/notif': (context) => NotificationScreen(),
+      },
       // home: const BelajarMedia(),
       // home: const LocalData(),
       // home: const TodoCrud(),
-      home: const TodoApiCrud(),
+      // home: const TodoApiCrud(),
     );
   }
 }

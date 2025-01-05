@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:try_flutter/returnDataScreen.dart';
 import 'package:try_flutter/secondScreen.dart';
+import 'package:try_flutter/services/notification_services.dart';
 
 class Firstscreen extends StatefulWidget {
   const Firstscreen({super.key});
@@ -60,6 +61,13 @@ class _FirstscreenState extends State<Firstscreen> {
               },
               child: Text('Go to Return Data Screen'),
             ),
+            const SizedBox(height: 10),
+            TextButton(
+                onPressed: () {
+                  NotificationServices.showNotification(
+                      'Notification', 'This is a notification', 'openPage');
+                },
+                child: const Text('Show Notification'))
           ],
         ),
       ),
